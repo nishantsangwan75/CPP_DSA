@@ -18,7 +18,6 @@ bool IsValid(vector<int> &arr,int m,int maxAllowedPages){
 int AllocateBooks(vector<int> &arr,int m){
 int start = 0; // minimum no. of pages that are given to a student is max element of array
     int end = 0;   // max no. of pages that can be given to a student is sum of array
-    int ans;
     for(int i=0;i<arr.size();i++){
         start=max(start,arr[i]);
         end+=arr[i];
@@ -26,7 +25,6 @@ int start = 0; // minimum no. of pages that are given to a student is max elemen
     while(start<end){
         int mid = start+(end-start)/2;
         if(IsValid(arr,m,mid)){ // if it is valid we have to store it in ans and check for smaller possible ans
-            ans=mid;
             end = mid; 
         }
         else{
